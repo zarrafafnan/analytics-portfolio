@@ -13,34 +13,9 @@ Welcome to my analytics portfolio! I'm a data analyst passionate about uncoverin
 ## Featured Projects
 
 ### Project 1: Los Angeles Crime Pattern Analysis
+
 #### Project Overview
 This project presents a comprehensive analysis of crime patterns in Los Angeles using official LAPD data from January 2023 to November 2024. The analysis aims to identify trends, patterns, and factors influencing crime occurrences to provide actionable insights for law enforcement and policymakers.
-
-**File**: `Final-submission.ipynb`
-
-#### Key Findings
-- **Geographic Distribution**: Central area shows the highest number of reported crimes, while Foothill has the lowest
-- **Crime Types**: Vehicle theft emerges as a predominant street crime
-- **Investigation Status**: A significant proportion of cases remain unresolved (Investigation Cont: 32,082 cases)
-- **Location Patterns**: Streets are the most common crime locations, with specific premises showing over 2,000 incidents
-
-#### Methodology
-- **Data Source**: Los Angeles Police Department (LAPD) official crime dataset
-- **Data Cleaning**: Handled character encoding issues, renamed columns for clarity, removed incomplete records
-- **Analysis Tools**: Python libraries (pandas, numpy, matplotlib, seaborn)
-- **Visualization**: Created comprehensive charts and graphs to illustrate crime patterns
-
-#### Technologies Used
-- Python for data manipulation and analysis
-- Pandas and NumPy for data processing
-- Matplotlib and Seaborn for data visualization
-- Jupyter Notebook for interactive analysis
-
-### Project 2: Final Analytics Assignment
-#### Project Overview
-This project represents comprehensive analytical work demonstrating advanced data analysis techniques and methodologies. The assignment showcases practical application of statistical methods, data visualization, and analytical reasoning.
-
-**File**: `3010U_final_assignment (1).pdf`
 
 #### Key Features
 - Advanced statistical analysis techniques
@@ -48,13 +23,13 @@ This project represents comprehensive analytical work demonstrating advanced dat
 - Detailed methodology and findings documentation
 - Professional presentation of analytical results
 
-### Running the Analysis
-#### Prerequisites
+#### Running the Analysis
+##### Prerequisites
 ```bash
 pip install pandas numpy matplotlib seaborn jupyter
 ```
 
-#### How to Run
+##### How to Run
 1. Clone this repository:
    ```bash
    git clone https://github.com/zarrafafnan/analytics-portfolio.git
@@ -69,19 +44,42 @@ pip install pandas numpy matplotlib seaborn jupyter
    ```
 4. Open `Final-submission.ipynb` and run all cells to reproduce the analysis
 
-#### Viewing the Notebook
+##### Viewing the Notebook
 You can also view the notebook directly on GitHub by clicking on the `Final-submission.ipynb` file above.
 
-### Key Insights & Recommendations
+#### Key Insights & Recommendations
 1. **Resource Allocation**: Increase investigative resources to address the high number of unresolved cases
 2. **Targeted Policing**: Focus street-level enforcement in high-crime areas, particularly Central district
 3. **Vehicle Theft Prevention**: Implement public awareness campaigns about vehicle security
 4. **Strategic Planning**: Use geographic crime distribution data for optimal patrol route planning
 
-### Data Ethics & Methodology
+#### Data Ethics & Methodology
 - All data used is publicly available through official government channels
 - Analysis maintains focus on patterns rather than individual cases
 - Findings presented with appropriate context and limitations
+
+### Project 2: Advanced Analytics Final Assignment
+
+#### Project Overview
+This project represents comprehensive analytical work demonstrating advanced data analysis techniques and methodologies. The assignment showcases practical application of statistical methods, data visualization, and analytical reasoning across multiple analytical domains.
+
+**File**: `3010U_final_assignment-1.pdf`
+
+#### Project Summary
+A comprehensive analytics project that demonstrates mastery of statistical analysis, data interpretation, and professional presentation of analytical findings. This work showcases advanced analytical skills through real-world data applications and methodological rigor.
+
+#### Key Findings
+- Applied advanced statistical modeling techniques to derive meaningful insights
+- Demonstrated proficiency in data visualization and interpretation
+- Provided actionable recommendations based on analytical findings
+- Showcased comprehensive understanding of analytical methodologies
+
+#### Skills & Technologies Used
+- **Statistical Analysis**: Advanced statistical methods and hypothesis testing
+- **Data Visualization**: Professional-grade charts and graphical representations
+- **Analytical Writing**: Clear communication of complex analytical concepts
+- **Methodology**: Rigorous analytical framework and documentation
+- **Data Interpretation**: Converting raw data into actionable business insights
 
 ## Contact Information
 Feel free to reach out for collaboration opportunities or questions about my work!
