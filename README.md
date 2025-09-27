@@ -63,7 +63,7 @@ You can also view the notebook directly on GitHub by clicking on the `Final-subm
 #### Project Overview
 This project represents comprehensive analytical work demonstrating advanced data analysis techniques and methodologies. The assignment showcases practical application of statistical methods, data visualization, and analytical reasoning across multiple analytical domains.
 
-**File**: `3010U_final_assignment-1.pdf`
+**File**: `3010U_final_assignment.pdf`
 
 #### Project Summary
 A comprehensive analytics project that demonstrates mastery of statistical analysis, data interpretation, and professional presentation of analytical findings. This work showcases advanced analytical skills through real-world data applications and methodological rigor.
