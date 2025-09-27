@@ -41,7 +41,7 @@ This project addresses the need for sophisticated analytical methodologies that 
 - **Validation:** Cross-validation, statistical significance testing, model performance evaluation
 
 ### Technical Stack
-- **Programming:** R, Python, SQL
+- **Programming:** SAAS and Excel
 - **Statistical Software:** Advanced statistical computing
 - **Visualization:** Data storytelling and executive dashboards
 - **Research Methods:** Literature review, theoretical framework development
