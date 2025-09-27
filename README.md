@@ -24,6 +24,7 @@ This project presents a comprehensive analysis of crime patterns in Los Angeles 
 - Professional presentation of analytical results
 
 #### Running the Analysis
+
 ##### Prerequisites
 ```bash
 pip install pandas numpy matplotlib seaborn jupyter
@@ -80,6 +81,43 @@ A comprehensive analytics project that demonstrates mastery of statistical analy
 - **Analytical Writing**: Clear communication of complex analytical concepts
 - **Methodology**: Rigorous analytical framework and documentation
 - **Data Interpretation**: Converting raw data into actionable business insights
+
+## Business Intelligence & Power BI Dashboards
+
+### Project Overview
+This section showcases my expertise in business intelligence and data visualization using Microsoft Power BI. These projects demonstrate my ability to transform raw business data into interactive, actionable insights for strategic decision-making.
+
+### Featured Power BI Projects
+
+#### 1. Sales Analysis Dashboard
+Interactive dashboard visualizing key sales trends, profit margins by category, and geographic performance. This comprehensive solution provides stakeholders with real-time insights into business performance across multiple dimensions.
+
+**Key Features**:
+- Dynamic sales trend analysis with time-based filtering
+- Profit margin breakdown by product category
+- Geographic performance mapping and analysis
+- Interactive drill-down capabilities for detailed exploration
+
+#### 2. Sales Map Report
+Geographic mapping of national and international sales data for strategic decision making. This report enables location-based analysis and identifies high-performing regions and market opportunities.
+
+**Key Features**:
+- Interactive geographical visualization of sales performance
+- Regional comparison and benchmarking
+- Market penetration analysis
+- Territory performance tracking
+
+#### 3. Sales Semantic Model
+Underlying data model and automation replacing manual spreadsheet workflows. This robust foundation ensures data consistency, reliability, and scalability for enterprise-level reporting.
+
+**Key Features**:
+- Automated data refresh and processing
+- Standardized business logic and calculations
+- Scalable architecture for growing data volumes
+- Enhanced data governance and quality assurance
+
+### Accessing the Dashboards
+Viewers can request access to full interactive dashboards via Power BI Service for hands-on exploration of these business intelligence solutions. Please contact me directly for dashboard access and demonstrations.
 
 ## Contact Information
 Feel free to reach out for collaboration opportunities or questions about my work!
