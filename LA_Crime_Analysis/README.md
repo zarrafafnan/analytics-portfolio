@@ -4,19 +4,20 @@
 
 **Business Challenge:** Los Angeles faces complex public safety challenges with over 200,000+ annual crime incidents, requiring data-driven insights to optimize resource allocation, enhance community safety, and inform strategic policing decisions.
 
-**Solution:** Leveraged advanced analytics, statistical modeling, and geospatial intelligence to analyze comprehensive crime datasets, identifying critical patterns, hotspots, and temporal trends through machine learning and predictive analytics.
+**Solution:** Leveraged advanced analytics, statistical modeling, and geospatial intelligence to analyze comprehensive crime datasets from January - November 2023, identifying critical patterns, hotspots, and temporal trends through machine learning and predictive analytics.
 
-**Quantifiable Results:** 
+**Quantifiable Results:**
 - Identified 15% reduction potential in response times through optimal resource deployment
 - Discovered 3 primary crime hotspots accounting for 40% of total incidents
 - Achieved 85% accuracy in temporal crime pattern prediction models
-- Mapped seasonal crime variations with 92% statistical confidence
+- Mapped seasonal crime variations with 92% statistical confidence across Jan-Nov 2023 data
 
 **Next Steps:** Deploy real-time crime prediction dashboard, implement geofencing alerts for high-risk zones, and integrate with LAPD resource management systems.
 
 ## Problem Statement
 
 Law enforcement agencies struggle with reactive approaches to crime prevention due to limited insights into spatial-temporal crime patterns. Traditional methods lack the analytical depth needed to:
+
 - Predict crime hotspots and timing
 - Optimize patrol routes and resource allocation
 - Understand demographic and environmental crime correlations
@@ -34,10 +35,10 @@ This analysis addresses the critical need for **actionable intelligence** to tra
 - **Machine Learning:** Clustering algorithms, predictive modeling
 
 **Approach:**
-1. **Data Preprocessing:** Cleaned 200K+ records, handled missing values, standardized geographic coordinates
+1. **Data Preprocessing:** Cleaned 200K+ records from Jan-Nov 2023, handled missing values, standardized geographic coordinates
 2. **Exploratory Data Analysis:** Statistical profiling, correlation analysis, outlier detection
 3. **Geospatial Intelligence:** Hotspot mapping, density analysis, neighborhood segmentation
-4. **Temporal Analysis:** Time series decomposition, seasonal trend identification
+4. **Temporal Analysis:** Time series decomposition, seasonal trend identification for 2023 data
 5. **Predictive Modeling:** Crime forecasting models, risk scoring algorithms
 
 ## Business Impact & Recommendations
@@ -45,9 +46,9 @@ This analysis addresses the critical need for **actionable intelligence** to tra
 ### 🎯 Strategic Insights
 
 **Resource Optimization:**
-- **Deploy 60% of patrol units** during peak crime hours (6-10 PM)
-- **Concentrate resources** in identified hotspots during high-risk periods
-- **Seasonal staffing adjustments** based on 18-month crime cycle patterns
+- Deploy 60% of patrol units during peak crime hours (6-10 PM)
+- Concentrate resources in identified hotspots during high-risk periods
+- Seasonal staffing adjustments based on Jan-Nov 2023 crime cycle patterns
 
 **Preventive Measures:**
 - **Community engagement programs** in top 5 crime-prone neighborhoods
@@ -60,15 +61,16 @@ This analysis addresses the critical need for **actionable intelligence** to tra
 - **Performance KPIs** tracking crime reduction effectiveness
 
 ### 📊 Key Performance Indicators
+
 - **25% potential improvement** in response time efficiency
 - **$2.3M estimated cost savings** through optimized resource allocation
 - **40% crime concentration** in 3 primary hotspots enables focused intervention
 
 ## Files
 
-- `Final-submission.ipynb`: Complete analytical workflow with 50+ visualizations, statistical models, and business intelligence insights
-- Interactive crime heatmaps and temporal trend analysis
-- Predictive modeling pipeline and validation metrics
+- `LA_Crime_Analysis_2023.ipynb`: Complete analytical workflow with 50+ visualizations, statistical models, and business intelligence insights analyzing Jan-Nov 2023 LA crime data
+  - Interactive crime heatmaps and temporal trend analysis
+  - Predictive modeling pipeline and validation metrics
 
 ## Technologies Used
 
@@ -76,17 +78,19 @@ This analysis addresses the critical need for **actionable intelligence** to tra
 **Analytics:** Scikit-learn, SciPy, Statsmodels  
 **Visualization:** Matplotlib, Seaborn, Folium  
 **Geospatial:** Geopandas, Shapely  
-**Data Sources:** LAPD Open Data Portal  
+**Data Sources:** LAPD Open Data Portal
 
 ## Limitations & Next Steps
 
 ### Current Limitations
+
 - **Historical data only** - requires real-time integration for operational deployment
 - **Limited demographic variables** - socioeconomic factors not included
 - **Weather/events correlation** - external factors need integration
 - **Prediction horizon** - current models optimized for 30-day forecasts
 
 ### Future Enhancements
+
 - **Real-time API integration** with LAPD systems
 - **Machine learning pipeline** with automated model retraining
 - **Mobile dashboard** for field officers
@@ -96,4 +100,4 @@ This analysis addresses the critical need for **actionable intelligence** to tra
 
 ---
 
-*This project demonstrates advanced analytics capabilities in public safety, combining statistical rigor with practical business applications. The insights generated provide immediate value for law enforcement decision-making while establishing a foundation for predictive policing initiatives.*
+*This project demonstrates advanced analytics capabilities in public safety, combining statistical rigor with practical business applications. The insights generated from Jan-Nov 2023 crime data provide immediate value for law enforcement decision-making while establishing a foundation for predictive policing initiatives.*
