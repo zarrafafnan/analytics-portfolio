@@ -1,0 +1,218 @@
+---
+title: "Football Player Information Visualization"
+author: "Zarraf Afnan"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# Introduction
+
+This report analyses a football players dataset covering player demographics, club affiliations, playing positions, and technical attributes. The central questions driving the analysis are: **How do player ratings vary by age and position?** and **How is football talent distributed across countries?** The findings have practical implications for scouting, squad planning, and understanding global talent pipelines.
+
+# Load Libraries
+
+```{r}
+library(tidyverse)
+library(scales)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggalluvial)
+```
+
+# Load Data
+
+```{r}
+players <- read.csv("players2.csv", sep = ";")
+players <- players %>% select(-1)
+
+glimpse(players)
+```
+
+# Data Cleaning
+
+```{r}
+players_clean <- players %>%
+  filter(!is.na(team))
+
+players_pos <- players_clean %>%
+  filter(!best_position %in% c("SUB", "RES")) %>%
+  mutate(
+    position_group = case_when(
+      best_position %in% c("ST", "CF", "LW", "RW") ~ "Attack",
+      best_position %in% c("CAM", "CM", "CDM", "LM", "RM") ~ "Midfield",
+      best_position %in% c("CB", "LB", "RB") ~ "Defense",
+      best_position == "GK" ~ "Goalkeeper",
+      TRUE ~ "Other"
+    )
+  )
+```
+
+# Visualization 1: Top Countries
+
+```{r}
+top_countries <- players_clean %>%
+  count(country, sort = TRUE) %>%
+  slice_head(n = 10)
+
+ggplot(top_countries, aes(x = reorder(country, n), y = n)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    title = "Top 10 Countries by Number of Players",
+    x = "Country",
+    y = "Number of Players"
+  ) +
+  theme_minimal()
+```
+
+This chart shows the top 10 countries with the most players in the dataset. A small number of nations dominate the talent pool, with European countries occupying most top positions. This concentration suggests that clubs scouting in these markets face the highest competition for players, while less-represented regions may offer untapped value.
+
+# Visualization 2: The Relationship Between Age and Overall Rating
+
+```{r}
+ggplot(players_pos, aes(x = age, y = best_overall_rating, color = position_group)) +
+  geom_point(alpha = 0.5, size = 1.5) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
+  scale_x_continuous(breaks = seq(15, 40, 5)) +
+  scale_y_continuous(labels = number_format(accuracy = 1)) +
+  labs(
+    title = "Relationship Between Age and Overall Rating",
+    x = "Age",
+    y = "Overall Rating",
+    color = "Position Group"
+  ) +
+  theme_classic() +
+  theme(legend.position = "bottom")
+```
+
+This scatter plot examines the relationship between player age and overall rating across the main position groups. All positions show a generally positive relationship between age and rating, consistent with the role of experience in performance development. Goalkeepers and midfielders display the steepest upward trends, suggesting these roles take longer to master. Attackers, by contrast, reach high ratings earlier — peaking in their mid-to-late 20s — and show more variation at younger ages, reflecting the high-risk, high-reward nature of scouting young forwards. Colour coding by position makes cross-role comparisons straightforward.
+
+**Business implication:** Clubs seeking immediate attacking output should target players in their late 20s; those building for the future can invest in young midfielders with longer development horizons.
+
+# Visualization 3: Distribution of Player Ratings by Position Group
+
+```{r}
+ggplot(players_pos, aes(x = position_group, y = best_overall_rating, fill = position_group)) +
+  geom_boxplot(alpha = 0.8, outlier.color = "red") +
+  scale_fill_brewer(palette = "Set2") +
+  scale_y_continuous(labels = number_format(accuracy = 1)) +
+  labs(
+    title = "Distribution of Player Ratings by Position Group",
+    x = "Position Group",
+    y = "Overall Rating"
+  ) +
+  theme_light() +
+  theme(legend.position = "none")
+```
+
+This boxplot compares how player ratings vary across the different position groups. Attackers show a slightly higher median rating than some of the other groups, while defenders appear to have a narrower spread. Goalkeepers and players in the “Other” category display wider variation, which suggests less consistency in ratings within those groups. This visualization is useful because it reveals not only the centre of each distribution, but also the distribution and potential outliers.
+
+
+# Visualization 4: Average Skill Levels by Position Group
+
+```{r}
+skills <- players_pos %>%
+  select(position_group, finishing, dribbling, short_passing, strength, vision)
+
+skills_summary <- skills %>%
+  group_by(position_group) %>%
+  summarise(across(everything(), mean, na.rm = TRUE))
+
+skills_long <- skills_summary %>%
+  pivot_longer(-position_group, names_to = "skill", values_to = "value")
+
+ggplot(skills_long, aes(x = skill, y = position_group, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_viridis_c() +
+  labs(
+    title = "Average Skill Levels by Position Group",
+    x = "Skill",
+    y = "Position Group",
+    fill = "Average"
+  ) +
+  theme_minimal()
+```
+
+This heatmap summarizes average attribute scores across five technical skills for each position group. Attackers lead in dribbling and finishing — consistent with their offensive role — while midfielders are the most well-rounded group, scoring highest in short passing and vision. Defenders show moderate values across most attributes, and goalkeepers understandably score near zero on attacking skills.
+
+**Business implication:** When assessing a player for a positional switch, this skill matrix provides a baseline for identifying attribute gaps. A midfielder transitioning to attacking roles, for instance, would primarily need to improve finishing.
+
+# Visualization 5: Global Distribution of Players
+
+```{r}
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+country_counts <- players_clean %>%
+  count(country)
+
+map_data <- world %>%
+  left_join(country_counts, by = c("name_long" = "country"))
+
+ggplot(map_data) +
+  geom_sf(aes(fill = n), color = "gray40", linewidth = 0.2) +
+  scale_fill_viridis_c(na.value = "grey85") +
+  labs(
+    title = "Global Distribution of Players",
+    fill = "Player Count"
+  ) +
+  theme_void()
+```
+
+This choropleth map shows how players in the dataset are distributed globally. A handful of nations — primarily in Western Europe and South America — appear much darker, reflecting their outsized contribution to the talent pool. Most of Africa, Asia, and North America remain lightly shaded, either because they produce fewer professional players or because those players are under-represented in the dataset.
+
+**Business implication:** The geographic concentration of talent means that clubs operating in the top talent markets face intense competition and high transfer fees. Scouting operations in lighter-shaded regions carry higher discovery costs but potentially lower acquisition costs.
+
+
+# Visualization 6: Flow of Players from Country to Position
+
+```{r}
+top_flow <- players_pos %>%
+  count(country, position_group) %>%
+  group_by(country) %>%
+  filter(sum(n) >= 15) %>%
+  ungroup()
+
+ggplot(top_flow,
+       aes(axis1 = country, axis2 = position_group, y = n)) +
+  geom_alluvium(aes(fill = country), width = 1/12, alpha = 0.8) +
+  geom_stratum(width = 1/12, fill = "grey85", color = "black") +
+  geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 4) +
+  scale_x_discrete(limits = c("Country", "Position Group"), expand = c(.08, .08)) +
+  labs(
+    title = "Flow of Players from Country to Position Group",
+    y = "Number of Players"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "right")
+```
+
+This alluvial chart maps the flow of players from their home country to their primary position group. The flows reveal that countries do not contribute proportionally across all positions: certain nations channel disproportionately into attack or midfield, while others produce a more balanced mix. This relational view complements the earlier geographic visualisations by adding positional context to the country-level data.
+
+**Business implication:** A club needing defensive reinforcement may find that certain high-producing countries are underweight in that area — creating a supply gap that makes defenders from those nations particularly scarce and expensive.
+
+# Conclusion
+
+This analysis reveals three consistent patterns across the dataset.
+
+**Age and experience drive ratings.** Overall ratings increase with age across all position groups, though the trajectory varies: goalkeepers and midfielders peak later, while attackers reach high ratings earlier and plateau sooner. This has direct implications for transfer timing and squad planning.
+
+**Position shapes skill specialisation.** The heatmap and boxplot confirm that each position group has a distinct attribute profile. Attackers excel at dribbling and finishing; midfielders lead in passing and vision; defenders are the most consistent performers by rating spread. These profiles should inform attribute weightings in player recruitment models.
+
+**Talent is geographically concentrated.** A small number of nations — mainly in Western Europe and South America — supply the majority of the dataset's players. The alluvial chart further shows that these countries also skew toward specific positions, creating both supply concentrations and gaps. Clubs that can identify and develop talent in underrepresented regions may gain a structural cost advantage.
+
+Together, the six visualisations demonstrate that age, position, and geography are interdependent dimensions of player value — and that treating them in isolation produces an incomplete picture for scouting or squad construction decisions.
+
+# References
+
+* Soccer Players Dataset, Kaggle
+* Link: https://www.kaggle.com/datasets/cihan063/soccer-players?resource=download
+
+# AI Usage
+
+AI tools were used to assist with markdown formatting corrections and to help debug R syntax errors during development.
+
