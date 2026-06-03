@@ -118,17 +118,17 @@ Findings carry practical implications for scouting strategy, squad planning, and
 
 #### Visualizations
 
-1. **Top Countries by Player Count** — bar chart of the 10 most represented nations
-2. **Age vs Overall Rating** — scatter plot by position group
-3. **Rating Distribution by Position** — boxplot comparing spread across roles
-4. **Skill Heatmap** — average technical attributes per position group
-5. **Global Player Distribution** — choropleth map of player counts by country
-6. **Country to Position Flow** — alluvial chart linking nationality to position
+1. **Top Countries by Player Count** â€” bar chart of the 10 most represented nations
+2. **Age vs Overall Rating** â€” scatter plot by position group
+3. **Rating Distribution by Position** â€” boxplot comparing spread across roles
+4. **Skill Heatmap** â€” average technical attributes per position group
+5. **Global Player Distribution** â€” choropleth map of player counts by country
+6. **Country to Position Flow** â€” alluvial chart linking nationality to position
 
 #### Key Findings
 
 - Player ratings increase with age across all positions; goalkeepers and midfielders peak later than attackers
-- Each position has a distinct skill profile — attackers excel in dribbling and finishing, midfielders lead in passing and vision
+- Each position has a distinct skill profile â€” attackers excel in dribbling and finishing, midfielders lead in passing and vision
 - Football talent is geographically concentrated in Western Europe and South America, with most other regions underrepresented
 
 #### Skills & Technologies Used
@@ -143,55 +143,65 @@ Findings carry practical implications for scouting strategy, squad planning, and
 |------|-------------|
 | `football_analysis.Rmd` | R Markdown source with all code and narrative |
 | `football_analysis.html` | Rendered HTML report (open in browser to view) |
-| `players2.csv` | Source dataset — football player attributes |
+| `players2.csv` | Source dataset â€” football player attributes |
 
 #### Data Source
 
-[Soccer Players Dataset — Kaggle](https://www.kaggle.com/datasets/cihan063/soccer-players?resource=download)
+[Soccer Players Dataset â€” Kaggle](https://www.kaggle.com/datasets/cihan063/soccer-players?resource=download)
 
 ---
 
-## Business Intelligence & Power BI Dashboards
+## Business Intelligence & Power BI
 
 ### Project Overview
 
-This section showcases my expertise in business intelligence and data visualization using Microsoft Power BI. These projects demonstrate my ability to transform raw business data into interactive, actionable insights for strategic decision-making.
+This section showcases my Power BI skills through a multi-page sales report built from scratch. The project demonstrates end-to-end BI development: data modeling, DAX measure writing, and dashboard design across four report pages.
 
-### Featured Power BI Projects
+**File**: `Sales.pbix`
 
-#### 1. Sales Analysis Dashboard
+### Report Pages
 
-Interactive dashboard visualizing key sales trends, profit margins by category, and geographic performance.
+#### 1. Overview
+The main dashboard providing an executive-level snapshot of business performance, featuring:
 
-**Key Features**:
-- Dynamic sales trend analysis with time-based filtering
-- Profit margin breakdown by product category
-- Geographic performance mapping and analysis
-- Interactive drill-down capabilities for detailed exploration
+- **KPI Card** â€” Total Sales at a glance
+- **Target Card** â€” Sales target for performance context
+- **Clustered Column Chart** â€” Total Sales by Continent
+- **Clustered Bar Chart** â€” Margin % by Product Category
+- **Line Chart** â€” Sales Performance trend over time
+- **Slicers** â€” Interactive Continent and Year filters applied across the report
 
-#### 2. Sales Map Report
+#### 2. Sales Regions
+Geographic breakdown of revenue using a **pie chart** showing Total Sales by Country.
 
-Geographic mapping of national and international sales data for strategic decision making.
+#### 3. Product Sales Details
+Granular time-series view of product-level performance, tracking:
 
-**Key Features**:
-- Interactive geographical visualization of sales performance
-- Regional comparison and benchmarking
-- Market penetration analysis
-- Territory performance tracking
+| Metric | Description |
+|--------|-------------|
+| Total Sales | Absolute revenue |
+| YTD Sales | Year-to-date cumulative total |
+| PY Total Sales | Prior year comparison |
+| Total Sales YoY% | Year-over-year growth percentage |
 
-#### 3. Sales Semantic Model
+#### 4. DAX Demos
+A dedicated page showcasing custom DAX measures written for this report:
 
-Underlying data model and automation replacing manual spreadsheet workflows.
+| Measure | Description |
+|---------|-------------|
+| Total Sales | Sum of all sales revenue |
+| Total Margin % | Overall profitability percentage |
+| Count of Sales Orders | Total number of orders |
+| Count of Sales Order Line Items | Total line items across all orders |
+| Count of Sales Order Line Items GT 50 | Filtered count of high-value line items |
+| PCT Sales Orders Line Items All Time | Line item percentage relative to all-time total |
 
-**Key Features**:
-- Automated data refresh and processing
-- Standardized business logic and calculations
-- Scalable architecture for growing data volumes
-- Enhanced data governance and quality assurance
+### DAX Concepts Demonstrated
 
-### Accessing the Dashboards
-
-Viewers can request access to full interactive dashboards via Power BI Service. Please contact me directly for dashboard access and demonstrations.
+- **Time Intelligence** â€” YTD, Prior Year comparisons, YoY% growth
+- **Aggregations** â€” Revenue totals and margin calculations
+- **Conditional Filtering** â€” Context-aware filtered counts
+- **Ratio Calculations** â€” Percentage metrics across filter contexts
 
 ---
 
@@ -203,3 +213,4 @@ Viewers can request access to full interactive dashboards via Power BI Service. 
 ---
 
 *This portfolio demonstrates proficiency in data analysis, statistical interpretation, and visualization techniques using real-world datasets. All analyses follow ethical data practices and aim to contribute meaningfully to data-driven decision making.*
+
