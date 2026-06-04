@@ -28,7 +28,7 @@ Vancouver saw the largest HPI increase post-2020 (+22.7 points), followed closel
 Toronto's sharpest growth occurred during the late 1980s housing bubble, peaking at ~27% year-over-year, followed by a dramatic crash to -15% in 1991 when high interest rates burst the bubble. From the mid-1990s onward, growth stabilized at a modest 2-5% annually. The post-2020 surge reached ~7% before declining in 2021-2022, confirming a year-over-year price drop as the market cooled after the COVID spike.
 
 ## Files
-- canada_housing_analysis_portfolio.ipynb: full analysis notebook with code, charts, and findings
+- `canada_housing_analysis_portfolio.ipynb`: full analysis notebook with code, charts, and findings
 - `HPI_1981-2022_by_regions.csv`: raw dataset
 
 ## Key Takeaways
